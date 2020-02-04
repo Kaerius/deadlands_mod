@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "deadlands",
+  "version": "${version}",
+
+  "name": "Dead Lands",
+  "description": "New lands, new challenges and creatures!",
+  "authors": [
+    "Sergeus_V"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.sergeus_v.DeadLands"
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.2",
+    "fabric": "*",
+    "minecraft": "1.15.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
