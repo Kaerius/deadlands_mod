@@ -1,0 +1,6 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "deadlands:items/axe_cursed_stone"
+	}
+}

@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        " / ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "deadlands:piece_of_cursed_stone"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+    	"item": "deadlands:packaxe_cursed_stone",
+    	"count": 1
+    }
+}

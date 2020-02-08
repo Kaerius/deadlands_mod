@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "deadlands:block/dead_block"
+    "all": "deadlands:block/cursed_stone"
   }
 }

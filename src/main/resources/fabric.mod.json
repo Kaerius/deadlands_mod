@@ -17,11 +17,12 @@
   "icon": "assets/modid/icon.png",
 
   "environment": "*",
-  "entrypoints": {
-    "main": [
-      "net.sergeus_v.DeadLands"
-    ]
-  },
+  "entrypoints": 
+  {
+    "main": [      "net.sergeus_v.DeadLands"    ],
+    "client": [     "net.sergeus_v.DeadLandsClient" ]
+ },  
+  
   "mixins": [
     "modid.mixins.json"
   ],

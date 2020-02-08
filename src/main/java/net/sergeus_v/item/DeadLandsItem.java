@@ -1,4 +1,4 @@
-package net.sergeus_v;
+package net.sergeus_v.item;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "deadlands:items/piece_of_cursed_stone"
+	}
+}
