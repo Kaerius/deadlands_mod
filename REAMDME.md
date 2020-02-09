@@ -1,3 +1,3 @@
 #Homework: Deadlands
 	Modification for Minecraft - "Dead Lands"
-	Author: Sergeus_V
+	Author: Sergeus_V, Kaerius

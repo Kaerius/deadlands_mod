@@ -1,38 +1,28 @@
 {
   "schemaVersion": 1,
   "id": "deadlands",
-  "version": "${version}",
-
-  "name": "Dead Lands",
-  "description": "New lands, new challenges and creatures!",
+  "version": "0.0.1",
+  "name": "Blood mod",
+  "description": "Sweet blood",
   "authors": [
-    "Sergeus_V"
+    "anhcraft"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
-
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
-
+  "icon": "assets/deadlands/icon.png",
   "environment": "*",
-  "entrypoints": 
-  {
-    "main": [      "net.sergeus_v.DeadLands"    ],
-    "client": [     "net.sergeus_v.DeadLandsClient" ]
- },  
-  
-  "mixins": [
-    "modid.mixins.json"
-  ],
-
+  "entrypoints": {
+    "main": [
+      "net.sergeus_v.DeadLands"
+    ],
+    "client": [
+      "net.sergeus_v.DeadLandsClient"
+    ]
+  },
   "depends": {
     "fabricloader": ">=0.7.2",
     "fabric": "*",
     "minecraft": "1.15.x"
   },
-  "suggests": {
-    "flamingo": "*"
-  }
+  "mixins": [
+    "deadlands.mixins.json"
+  ]
 }

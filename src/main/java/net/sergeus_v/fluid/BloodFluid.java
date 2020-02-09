@@ -1,46 +1,65 @@
 package net.sergeus_v.fluid;
 
+import net.sergeus_v.DeadLands;
+import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.fluid.BaseFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.tag.Tag;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.sergeus_v.DeadLands;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class BloodFluid extends BaseFluid {
     @Override
     public Fluid getFlowing() {
-        return DeadLands.getInstance().FLOWING_BLOOD;
+        return DeadLands.getInstance().bloodFluidFlowing;
     }
 
     @Override
     public Fluid getStill() {
-        return DeadLands.getInstance().STILL_BLOOD;
+        return DeadLands.getInstance().bloodFluidStill;
     }
 
     @Override
     public Item getBucketItem() {
-        return DeadLands.getInstance().BLOOD_BUCKET;
+        return DeadLands.getInstance().bloodBucket;
     }
 
-    
+    @Override
+    public void randomDisplayTick(World world, BlockPos blockPos, FluidState fluidState, Random random) {
+        if (fluidState.isStill() && fluidState.get(FALLING)) {
+            world.addParticle(ParticleTypes.FALLING_HONEY, blockPos.getX() + random.nextFloat(), blockPos.getY() + random.nextFloat(), blockPos.getZ() + random.nextFloat(), 0D, 0D, 0D);
+        }
+    }
+
+    @Override
+    public ParticleEffect getParticle() {
+        return ParticleTypes.DRIPPING_HONEY;
+    }
+
     @Override
     protected boolean isInfinite() {
         return false;
@@ -59,12 +78,12 @@ public abstract class BloodFluid extends BaseFluid {
 
     @Override
     protected BlockState toBlockState(FluidState fluidState) {
-        return DeadLands.getInstance().BLOOD.getDefaultState().with(FluidBlock.LEVEL, method_15741(fluidState));
+        return DeadLands.getInstance().bloodFluidBlock.getDefaultState().with(FluidBlock.LEVEL, method_15741(fluidState));
     }
 
     @Override
     public boolean matchesType(Fluid fluid) {
-        return fluid == DeadLands.getInstance().STILL_BLOOD || fluid == DeadLands.getInstance().FLOWING_BLOOD;
+        return fluid == DeadLands.getInstance().bloodFluidStill || fluid == DeadLands.getInstance().bloodFluidFlowing;
     }
 
     public boolean matches(Tag<Fluid> tag) {
